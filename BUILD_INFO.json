@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "channel": "debug",
+  "artifacts": [
+    {
+      "name": "infirmier.apk",
+      "package": "com.infirmier.app",
+      "version_code": 198,
+      "version_name": "1.0.198",
+      "min_sdk": 23,
+      "sha256": "38d6df996d0beb431ed015ac3dad24038cf40dab8ad00e073d61abba9154a866",
+      "signing_cert_sha256": [
+        "695fca75c9a176566693e500629a824abbe91786c71f005636acf73301d6045e"
+      ]
+    }
+  ]
+}
