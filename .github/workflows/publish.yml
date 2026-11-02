@@ -1,0 +1,36 @@
+name: Publier APK
+on:
+  push:
+    branches: [main]
+    paths: [infirmier.apk, BUILD_INFO.json]
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: apk-publication
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Vérifier le fichier publié
+        run: |
+          python3 - <<'PY'
+          import json, hashlib
+          from pathlib import Path
+          info=json.loads(Path('BUILD_INFO.json').read_text())
+          apk=info['artifacts'][0]
+          assert apk['package']=='com.infirmier.app'
+          assert hashlib.sha256(Path('infirmier.apk').read_bytes()).hexdigest()==apk['sha256']
+          PY
+      - uses: softprops/action-gh-release@v2
+        with:
+          tag_name: android-latest
+          name: Tournée Infirmier — APK à jour
+          body: Mise à jour Android. Le code source applicatif reste privé.
+          make_latest: true
+          fail_on_unmatched_files: true
+          files: |
+            infirmier.apk
+            BUILD_INFO.json
