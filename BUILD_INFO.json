@@ -5,10 +5,10 @@
     {
       "name": "infirmier.apk",
       "package": "com.infirmier.app",
-      "version_code": 201,
-      "version_name": "1.0.201",
+      "version_code": 202,
+      "version_name": "1.0.202",
       "min_sdk": 23,
-      "sha256": "f7e5fc25343f63cf2417d5f1b2bda6735b2b5c53d179c3879be0c107d6e82eb5",
+      "sha256": "cd204c56a66fc59e7152f34d7ea44958158e08818518f2fba05a018e814df3ed",
       "signing_cert_sha256": [
         "695fca75c9a176566693e500629a824abbe91786c71f005636acf73301d6045e"
       ]
